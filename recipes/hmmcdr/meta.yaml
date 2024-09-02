@@ -1,0 +1,40 @@
+package:
+  name: hmmcdr
+  version: "0.1.4"
+
+source:
+  url: https://files.pythonhosted.org/packages/4e/7c/3d7cd438fce499d4cba5a926c2cbb79826278d33473d3c32ecfbeea5e0b0/hmmcdr-0.1.4.tar.gz
+  sha256: 611a6ef528b5de17eed308a3e3045b856be367b5308fb316996daa3230a4d030
+
+build:
+  noarch: python
+  script: python -m pip install --no-deps --ignore-installed .
+
+requirements:
+  host:
+    - python >=3.7
+    - pip
+  run:
+    - python >=3.7
+    - pandas >=1.3.5
+    - numpy >=1.21.5
+    - pybedtools >=0.8.1  # Ensure bioconda channel is used
+    - hmmlearn >=0.3.0    # Ensure conda-forge channel is used
+
+test:
+  imports:
+    - hmmCDR
+
+about:
+  home: https://github.com/jmenendez98/hmmCDR
+  license: MIT
+  summary: Find CDR locations using bedmethyl file and CenSat annotations.
+
+extra:
+  identifiers:
+    - biotools:hmmCDR
+  keywords:
+    - bioinformatics
+    - genomics
+    - centromeres
+    - methylation
